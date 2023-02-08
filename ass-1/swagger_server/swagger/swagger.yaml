@@ -42,6 +42,47 @@ paths:
         "404":
           description: not found
       x-openapi-router-controller: swagger_server.controllers.default_controller
+    delete:
+      summary: deletes a student
+      description: |
+        delete a single student
+      operationId: delete_student
+      parameters:
+      - name: student_id
+        in: path
+        description: the uid
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+          format: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: student deleted
+                x-content-type: text/plain
+        "400":
+          description: bad request
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: malformed request
+                x-content-type: text/plain
+        "404":
+          description: NOT FOUND
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: The page you request was not found
+                x-content-type: text/plain
+      x-openapi-router-controller: swagger_server.controllers.default_controller
   /student:
     post:
       summary: Add a new student
@@ -76,7 +117,7 @@ components:
       type: object
       properties:
         student_id:
-          type: integer
+          type: number
         first_name:
           type: string
         last_name:
@@ -90,9 +131,9 @@ components:
         last_name: last_name
         first_name: first_name
         gradeRecords:
-        - grade: 6.027456183070403
+        - grade: 6.02745618307040320615897144307382404804229736328125
           subject_name: subject_name
-        - grade: 6.027456183070403
+        - grade: 6.02745618307040320615897144307382404804229736328125
           subject_name: subject_name
     GradeRecord:
       required:
@@ -107,6 +148,6 @@ components:
           minimum: 0
           type: number
       example:
-        grade: 6.027456183070403
+        grade: 6.02745618307040320615897144307382404804229736328125
         subject_name: subject_name
 

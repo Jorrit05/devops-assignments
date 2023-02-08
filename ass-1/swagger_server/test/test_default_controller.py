@@ -26,6 +26,17 @@ class TestDefaultController(BaseTestCase):
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 
+    def test_delete_student(self):
+        """Test case for delete_student
+
+        deletes a student
+        """
+        response = self.client.open(
+            '/Jorrit05/DevOpsAssignmentOne/1.0.0/student/{student_id}'.format(student_id=1.2),
+            method='DELETE')
+        self.assert200(response,
+                       'Response body is : ' + response.data.decode('utf-8'))
+
     def test_get_student_by_id(self):
         """Test case for get_student_by_id
 

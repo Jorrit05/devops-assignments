@@ -4,8 +4,6 @@ servers:
   # Added by API Auto Mocking Plugin
   - description: SwaggerHub API Auto Mocking
     url: https://virtserver.swaggerhub.com/Jorrit05/DevOpsAssignmentOne/1.0.0
-  - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.SwaggerHub.com/DevOpsAssignmentOne/1.0.0
 info:
   description: This is a simple API
   version: "1.0.0"
