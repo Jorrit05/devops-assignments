@@ -1,8 +1,8 @@
-name: Builb Test and push
+name: Build Test and push
 on: [push]
 env:
   IMAGE_NAME: student_service
-  REPO_NAME:
+  REPO_NAME: jorrit05
 
 
 jobs:
