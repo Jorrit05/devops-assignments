@@ -4,7 +4,9 @@ env:
   IMAGE_NAME: student_service
   REPO_NAME: jorrit05
 
-
+defaults:
+  run:
+    working-directory: 'ass-1'
 jobs:
   build:
     runs-on: ubuntu-latest
