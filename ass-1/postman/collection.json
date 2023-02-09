@@ -1559,8 +1559,8 @@
 	],
 	"variable": [
 		{
-			"key": "localhost:8080",
-			"value": "/Jorrit05/DevOpsAssignmentOne/1.0.0",
+			"key": "baseUrl",
+			"value": "http://localhost:8080/Jorrit05/DevOpsAssignmentOne/1.0.0",
 			"type": "string"
 		}
 	]
