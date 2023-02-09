@@ -25,6 +25,10 @@ collection = db["student_collection"]
 def add(student=None):
     print("hoi")
     log.warning("start adding")
+    log.warning(student)
+
+    json_object = json.dumps(student, indent = 4)
+    log.warning(json_object)
     document = {"name": "John Doe", "email": "johndoe@example.com"}
 
     collection.insert_one(document)
