@@ -24,17 +24,20 @@ collection = db["student_collection"]
 
 
 def add(student=None):
-    print("hoi")
     log.warning("start adding")
     log.warning(student)
-
-    json_object = json.dumps(student, indent = 4)
+    json_object = {
+        "first_name": student.first_name,
+        "gradeRecords": student.grade_records,
+        "last_name": student.last_name,
+        "student_id": student.from_dict
+    }
     log.warning(json_object)
-    document = {"name": "John Doe", "email": "johndoe@example.com"}
 
-    collection.insert_one(document)
+
+    collection.insert_one(json_object)
     # Confirm that the document has been added
-    print("Document added:", document)
+
 
     queries = []
     query = Query()
