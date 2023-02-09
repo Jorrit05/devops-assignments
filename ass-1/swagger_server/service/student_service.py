@@ -11,11 +11,11 @@ import logging
 import bson
 
 log = logging.getLogger("student_service")
-# from tinydb import TinyDB, Query
+from tinydb import TinyDB, Query
 
-# db_dir_path = tempfile.gettempdir()
-# db_file_path = os.path.join(db_dir_path, "students.json")
-# student_db = TinyDB(db_file_path)
+db_dir_path = tempfile.gettempdir()
+db_file_path = os.path.join(db_dir_path, "students.json")
+student_db = TinyDB(db_file_path)
 
 # Connect to the MongoDB database running in the container
 client = pymongo.MongoClient("mongodb://root:example@mongo:27017/")
@@ -28,20 +28,17 @@ collection = db["student_collection"]
 
 
 def add(student=None):
-    result = collection.find_one({"student_id": student["student_id"]})
-    if result:
-        return 'user already exists', 409
+    try:
+        result = collection.find_one({"student_id": student["student_id"]})
+        if result:
+            return 'user already exists', 409
+    except KeyError:
+        log.warning("No Key given ")
 
     log.info(f"Inserting {student}")
-
-    return f"Inserted id {collection.insert_one(student).inserted_id}"
-    # if collection.find({"student_id": student["student_id"]}):
-    #     return 'user already exists', 409
-
-    # log.info(f"Inserting {student}")
-    # return collection.insert_one(student)
-    # Confirm that the document has been added
-
+    user_id = collection.insert_one(student).inserted_id
+    return user_id
+    # print(student)
 
     # queries = []
     # query = Query()
@@ -54,7 +51,7 @@ def add(student=None):
 
     # doc_id = student_db.insert(student.to_dict())
     # student.student_id = doc_id
-    return student["student_id"]
+    # return student.student_id
 
 
 def get_by_id(student_id=None, subject=None):

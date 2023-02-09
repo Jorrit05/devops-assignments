@@ -15,6 +15,11 @@ def add_student(body=None):  # noqa: E501
 
     :rtype: float
     """
+
+    # if connexion.request.is_json:
+    #     body = Student.from_dict(connexion.request.get_json()) # noqa: E501
+    #     return add(body)
+    # return 500,'error'
     if connexion.request.is_json:
         return add(connexion.request.get_json())
     return 500,'error'
