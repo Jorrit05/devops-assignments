@@ -4,6 +4,7 @@ from functools import reduce
 import pymongo
 
 import logging
+import json
 
 log = logging.getLogger("student_service")
 from tinydb import TinyDB, Query
