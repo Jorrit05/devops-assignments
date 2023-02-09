@@ -34,7 +34,7 @@ def add(student=None):
             "subject_name": "subject_name"
             },
             {
-            "grade": 6.027456183070403,
+            "grade": 6.3,
             "subject_name": "subject_name"
             }
         ],
