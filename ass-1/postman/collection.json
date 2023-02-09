@@ -1559,8 +1559,8 @@
 	],
 	"variable": [
 		{
-			"key": "baseUrl",
-			"value": "/service-api",
+			"key": "localhost:8080",
+			"value": "/Jorrit05/DevOpsAssignmentOne/1.0.0",
 			"type": "string"
 		}
 	]
