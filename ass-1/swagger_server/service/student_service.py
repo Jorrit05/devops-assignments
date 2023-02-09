@@ -24,6 +24,7 @@ collection = db["student_collection"]
 
 def add(student=None):
     print("hoi")
+    log.warning("start adding")
     document = {"name": "John Doe", "email": "johndoe@example.com"}
 
     collection.insert_one(document)
