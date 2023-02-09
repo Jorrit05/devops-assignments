@@ -39,7 +39,7 @@ def add(student=None):
             }
         ],
         "last_name": student.last_name,
-        "student_id": student.from_dict
+        "student_id": student.student_id
     }
     log.warning(json_object)
 
