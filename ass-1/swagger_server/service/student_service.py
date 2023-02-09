@@ -3,6 +3,9 @@ import tempfile
 from functools import reduce
 import pymongo
 
+import logging
+
+log = logging.getLogger("student_service")
 from tinydb import TinyDB, Query
 
 db_dir_path = tempfile.gettempdir()
