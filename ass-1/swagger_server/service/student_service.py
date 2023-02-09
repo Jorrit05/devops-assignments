@@ -1,6 +1,7 @@
 import os
 import tempfile
 from functools import reduce
+import pymongo
 
 from tinydb import TinyDB, Query
 
@@ -8,9 +9,22 @@ db_dir_path = tempfile.gettempdir()
 db_file_path = os.path.join(db_dir_path, "students.json")
 student_db = TinyDB(db_file_path)
 
+# Connect to the MongoDB database running in the container
+client = pymongo.MongoClient("mongodb://root:example@mongo:27017/")
+
+# Get the database (the database will be created automatically if it doesn't exist)
+db = client["student_db"]
+
+# Get the collection (the collection will be created automatically if it doesn't exist)
+collection = db["student_collection"]
+
 
 def add(student=None):
-    print("HOI JERRY")
+    print("hoi")
+    collection.insert_one(student)
+    # Confirm that the document has been added
+    print("Document added:", student)
+
     queries = []
     query = Query()
     queries.append(query.first_name == student.first_name)
@@ -26,7 +40,6 @@ def add(student=None):
 
 
 def get_by_id(student_id=None, subject=None):
-    print("HOI JERRY!")
     student = student_db.get(doc_id=int(student_id))
     if not student:
         return 'not found', 404
