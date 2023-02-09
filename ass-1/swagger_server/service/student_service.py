@@ -28,12 +28,20 @@ def add(student=None):
     log.warning(student)
     json_object = {
         "first_name": student.first_name,
-        "gradeRecords": student.grade_records,
+        "gradeRecords": [
+            {
+            "grade": 6.027456183070403,
+            "subject_name": "subject_name"
+            },
+            {
+            "grade": 6.027456183070403,
+            "subject_name": "subject_name"
+            }
+        ],
         "last_name": student.last_name,
         "student_id": student.from_dict
     }
     log.warning(json_object)
-
 
     collection.insert_one(json_object)
     # Confirm that the document has been added
