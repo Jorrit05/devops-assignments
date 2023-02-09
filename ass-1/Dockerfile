@@ -13,4 +13,4 @@ EXPOSE 8080
 
 ENTRYPOINT ["python3"]
 
-CMD ["-m", "swagger_server", "--log-config",  "/app/log.ini"]
+CMD ["-m", "swagger_server", "--log-config",  "/usr/src/app/log.ini"]
