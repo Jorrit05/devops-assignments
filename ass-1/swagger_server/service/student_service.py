@@ -21,9 +21,11 @@ collection = db["student_collection"]
 
 def add(student=None):
     print("hoi")
-    collection.insert_one(student)
+    document = {"name": "John Doe", "email": "johndoe@example.com"}
+
+    collection.insert_one(document)
     # Confirm that the document has been added
-    print("Document added:", student)
+    print("Document added:", document)
 
     queries = []
     query = Query()
