@@ -36,12 +36,8 @@ spec:
     spec:
       containers:
       - env:
-        - name: MONGO_URI
-          value: mongodb://mongo:27017
-        - name: ME_CONFIG_MONGODB_URL
+        - name: MONGO_CONNECTION_STRING
           value: mongodb://root:example@mongo:27017
-
-
         image: jorrit05/student_service
         name: service
         imagePullPolicy: Always
