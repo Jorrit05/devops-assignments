@@ -21,8 +21,6 @@ collection = db["student_collection"]
 
 
 def add(student=None):
-    log.warning(f"type: {type(student)}")
-
     # Find student by first, last name combination
     result = collection.find_one({"first_name": student["first_name"], "last_name": student["last_name"]})
     if result:
@@ -31,8 +29,8 @@ def add(student=None):
     # return student ID, field: _ID
     return str(collection.insert_one(student).inserted_id)
 
-def get_by_id(student_id=None, subject=None):
 
+def get_by_id(student_id=None, subject=None):
     try:
         student = collection.find_one({"_id": ObjectId(student_id)})
         if not student:
@@ -44,6 +42,7 @@ def get_by_id(student_id=None, subject=None):
 
 
     return dumps(student)
+
 
 def delete(student_id=None):
     student = collection.find_one({"_id": ObjectId(student_id)})
