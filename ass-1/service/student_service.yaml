@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
       - env:
-        - name: MONGO_CONNECTION_STRING
+        - name: MONGO_URI
           value: mongodb://root:example@mongo:27017
         image: jorrit05/student_service
         name: service

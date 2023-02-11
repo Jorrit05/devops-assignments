@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger("student_service")
 
 # Connect to the MongoDB database running in the container
-connection_string = os.getenv("MONGO_CONNECTION_STRING")
+connection_string = os.getenv("MONGO_URI")
 client = pymongo.MongoClient(connection_string)
 
 # Get the database (the database will be created automatically if it doesn't exist)
