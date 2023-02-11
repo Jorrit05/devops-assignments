@@ -11,8 +11,6 @@ info:
 servers:
 - url: https://virtserver.swaggerhub.com/Jorrit05/DevOpsAssignmentOne/1.0.0
   description: SwaggerHub API Auto Mocking
-- url: https://virtserver.SwaggerHub.com/DevOpsAssignmentOne/1.0.0
-  description: SwaggerHub API Auto Mocking
 paths:
   /student/{student_id}:
     get:
@@ -28,8 +26,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: number
-          format: integer
+          type: string
       responses:
         "200":
           description: successful operation
@@ -55,8 +52,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: number
-          format: integer
+          type: string
       responses:
         "200":
           description: OK
@@ -116,8 +112,8 @@ components:
       - last_name
       type: object
       properties:
-        student_id:
-          type: number
+        _id:
+          type: string
         first_name:
           type: string
         last_name:
@@ -127,13 +123,13 @@ components:
           items:
             $ref: '#/components/schemas/GradeRecord'
       example:
-        student_id: 0
         last_name: last_name
+        _id: _id
         first_name: first_name
         gradeRecords:
-        - grade: 6.02745618307040320615897144307382404804229736328125
+        - grade: 0.8008281904610115
           subject_name: subject_name
-        - grade: 6.02745618307040320615897144307382404804229736328125
+        - grade: 0.8008281904610115
           subject_name: subject_name
     GradeRecord:
       required:
@@ -148,6 +144,6 @@ components:
           minimum: 0
           type: number
       example:
-        grade: 6.02745618307040320615897144307382404804229736328125
+        grade: 0.8008281904610115
         subject_name: subject_name
 

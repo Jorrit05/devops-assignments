@@ -26,8 +26,7 @@ paths:
           description: the uid
           required: true
           schema:
-            type: number
-            format: integer
+            type: string
       responses:
         '200':
           description: successful operation
@@ -50,8 +49,7 @@ paths:
         description: the uid
         required: true
         schema:
-          type: number
-          format: integer
+          type: string
       responses:
         "200":
           description: OK
@@ -106,8 +104,8 @@ components:
       - first_name
       - last_name
       properties:
-        student_id:
-          type: integer
+        _id:
+          type: string
         first_name:
           type: string
         last_name:

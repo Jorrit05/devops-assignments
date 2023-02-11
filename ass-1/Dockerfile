@@ -1,4 +1,4 @@
-FROM python:3.8-alpine
+FROM python:3.6-alpine
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -13,4 +13,4 @@ EXPOSE 8080
 
 ENTRYPOINT ["python3"]
 
-CMD ["-m", "swagger_server", "--log-config",  "/usr/src/app/log.ini"]
+CMD ["-m", "swagger_server"]
