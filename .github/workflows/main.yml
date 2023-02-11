@@ -22,28 +22,18 @@ jobs:
 
 
     - name: Run API Tests
-      continue-on-error: true
       run: |
         newman run postman/collection.json -e postman/environment.json
 
-    # - name: Run API Tests
-    #   id: run-newman
-    #   uses: anthonyvscode/newman-action@v1
-    #   with:
-    #     collection: postman/collection.json
-    #     environment: postman/environment.json
-    #     reporters: cli
-    #     iterationCount: 3
-
-    # - name: Output summary to console
-    #   run: echo ${{ steps.run-newman.outputs.summary }}
 
     - name: Docker Login
+      if: always()
       uses: docker/login-action@v2.1.0
       with:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
 
     - name: Push image to docker hub Container Registry
+      if: always()
       run: |
           docker push $REPO_NAME/$IMAGE_NAME
