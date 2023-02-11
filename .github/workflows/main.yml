@@ -16,12 +16,24 @@ jobs:
       run: |
         docker build . -t $REPO_NAME/$IMAGE_NAME
 
-    - name: Run API Tests
+    - name: Run Docker
       run: |
         docker-compose up -d
         # Wait for the containers to start
         sleep 5
-        newman run postman/collection.json -e postman/environment.json
+
+    - name: Newman Action
+      uses: matt-ball/newman-action@v1.0.4
+      with:
+        collection: postman/collection.json
+        environment: postman/environment.json
+        
+#     - name: Run API Tests
+#       run: |
+#         docker-compose up -d
+#         # Wait for the containers to start
+#         sleep 5
+#         newman run postman/collection.json -e postman/environment.json
 
     - name: Docker Login
       if: always()
