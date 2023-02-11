@@ -15,18 +15,12 @@ jobs:
     - name: Build docker
       run: |
         docker build . -t $REPO_NAME/$IMAGE_NAME
-    - name: run docker
-      run: |
-        docker images
-        docker-compose up
-        # Wait for the containers to start. This can be better be done with some aliveness check
-        sleep 10
 
     - name: Run API Tests
       run: |
-        docker-compose up
-        # Wait for the containers to start. This can be better be done with some aliveness check
-        sleep 30
+        docker-compose up -d
+        # Wait for the containers to start
+        sleep 5
         newman run postman/collection.json -e postman/environment.json
 
     - name: Docker Login
