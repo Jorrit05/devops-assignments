@@ -25,7 +25,7 @@ jobs:
       run: |
         docker-compose up
         # Wait for the containers to start. This can be better be done with some aliveness check
-        sleep 30s
+        sleep 30
         newman run postman/collection.json -e postman/environment.json
 
     - name: Docker Login
