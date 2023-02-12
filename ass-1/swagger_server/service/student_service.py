@@ -40,8 +40,9 @@ def get_by_id(student_id=None, subject=None):
         log.warning("Invalid ID")
         return 'not found', 404
 
-
-    return dumps(student)
+    # Convert the object to a string and return JSON
+    student["_id"] = str(student["_id"])
+    return student
 
 
 def delete(student_id=None):
