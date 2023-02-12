@@ -28,7 +28,6 @@ jobs:
         collection: postman/collection.json 
         # Environment to use
         environment: postman/environment.json
-        folder: 'ass-1'
         
         
     #- name: Run API Tests
