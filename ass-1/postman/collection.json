@@ -157,7 +157,6 @@
 									"tests[\"Response should not be 'do some magic!'\"] = responseBody != \"do some magic!\";",
 									"var jsonData = JSON.parse(responseBody);",
 									"first_name = postman.getEnvironmentVariable(\"first_name\");",
-
 									"tests[\"Name must be \"+first_name] = jsonData.first_name == first_name;",
 									"last_name = postman.getEnvironmentVariable(\"last_name\");",
 									"tests[\"last name  must be \"+last_name] = jsonData.last_name == last_name;",
