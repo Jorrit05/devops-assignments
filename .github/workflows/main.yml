@@ -22,13 +22,25 @@ jobs:
         # Wait for the containers to start
         sleep 5
 
-    - name: Newman CLI (Postman) Action
-      uses: anthonyvscode/newman-action@v1.1
-      with:
-        collection: postman/collection.json 
-        # Environment to use
-        environment: postman/environment.json
+#     - name: Newman CLI (Postman) Action
+#       uses: anthonyvscode/newman-action@v1.1
+#       with:
+#         collection: postman/collection.json 
+#         # Environment to use
+#         environment: postman/environment.json
         
+    - name: Run API Tests
+      id: run-newman
+      uses: anthonyvscode/newman-action@v1
+      with:
+        collection: postman/collection.json
+        environment: postman/environment.json
+        reporters: cli
+        iterationCount: 3
+
+    - name: Output summary to console
+      run: echo ${{ steps.run-newman.outputs.summary }}
+
         
     #- name: Run API Tests
      # run: |
